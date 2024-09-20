@@ -116,4 +116,4 @@ class Comment(models.Model):
         default_related_name = 'comments'
 
     def __str__(self):
-        return self.text[:REPRESENTATION_LENGTH]
+        return self.text[:settings.REPRESENTATION_LENGTH]

@@ -35,8 +35,10 @@ class CommentMixin:
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('blog:post_detail',
-                            kwargs={'pk': self.kwargs.get('post_id')})
+        return reverse(
+            'blog:post_detail',
+            kwargs={'pk': self.kwargs.get('post_id')}
+        )
 
 
 class IndexListView(ListView):
@@ -178,8 +180,10 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
         return super().dispatch(request, *args, **kwargs)
 
     def get_success_url(self):
-        return reverse('blog:post_detail',
-                            kwargs={'pk': self.posts.pk})
+        return reverse(
+            'blog:post_detail',
+            kwargs={'pk': self.posts.pk}
+        )
 
 
 class PostDeleteView(LoginRequiredMixin, DeleteView):

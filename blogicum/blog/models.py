@@ -1,14 +1,8 @@
+from django.conf import settings
+from django.contrib.auth import get_user_model
 from django.db import models
-
 from django.urls import reverse
 
-
-from django.conf import settings
-
-
-from django.contrib.auth import get_user_model
-
-from django.db import models
 
 User = get_user_model()
 
@@ -122,4 +116,4 @@ class Comment(models.Model):
         default_related_name = 'comments'
 
     def __str__(self):
-        return self.text[:20]
+        return self.text[:REPRESENTATION_LENGTH]
